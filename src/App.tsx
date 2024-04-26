@@ -3,7 +3,13 @@ import DataList from "./components/data-list";
 
 const App: FC = () => {
   return (
-    <div>
+    <div style={{
+      maxWidth: "80vw",
+      height: "100vh",
+      margin: "auto",
+      display: "grid",
+      placeItems: "center",
+    }}>
       <DataList />
     </div>
   )
