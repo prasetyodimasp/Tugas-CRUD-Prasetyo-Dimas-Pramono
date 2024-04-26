@@ -34,7 +34,7 @@ const fetcher = async () => {
         .then(res => res.data);
 }
 export const useGetUsers = () => {
-    const {setUsers} = useUserStore()
+    const {setUsers, users} = useUserStore()
     const result = useQuery<User[]>({ 
         queryKey: ["user-list"], 
         queryFn: fetcher 
@@ -42,5 +42,5 @@ export const useGetUsers = () => {
     useEffect(() => {
         if(result.data) setUsers(result.data)
     }, [result.data])
-    return result
+    return {...result, userList: users}
 }
