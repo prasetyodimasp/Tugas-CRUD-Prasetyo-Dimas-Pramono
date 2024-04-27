@@ -11,7 +11,6 @@ const DataList: FC = () => {
 
   return (
     <>
-      <Link to="/">Add User</Link>
       <Table
         columns={colums}
         dataSource={userList?.map(({ id, username, name, email }) => ({
@@ -21,8 +20,8 @@ const DataList: FC = () => {
           name,
           email,
         }))} 
-        
       />
+      <Link to="/add">Add User</Link>
     </>
   );
 }

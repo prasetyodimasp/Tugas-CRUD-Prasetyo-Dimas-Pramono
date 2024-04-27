@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Button, Form, Input } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 type onSubmit = {
     name: string;
@@ -8,8 +9,11 @@ type onSubmit = {
 }
 
 const UserDetailPage: FC<{ onSubmit?: (values: onSubmit) => void, initialValues?: object }> = ({ onSubmit, initialValues }) => {
+    const navigate = useNavigate();
     const onFinish = (values: onSubmit) => {
         if (onSubmit) onSubmit(values);
+        navigate("/")
+
     };
 
 
