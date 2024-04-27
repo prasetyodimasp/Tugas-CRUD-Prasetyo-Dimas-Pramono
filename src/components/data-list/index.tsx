@@ -1,8 +1,8 @@
-import { Table } from 'antd';
-import { FC } from 'react'; 1
-import { colums } from './constants';
-import { useGetUsers } from '../../services/api/get-users';
-import { Link } from 'react-router-dom';
+import { Table } from "antd";
+import { FC } from "react";
+import { Link } from "react-router-dom";
+import { useGetUsers } from "../../services/api/get-users";
+import { colums } from "./constants";
 
 const DataList: FC = () => {
   const { userList } = useGetUsers();
@@ -17,11 +17,11 @@ const DataList: FC = () => {
           username,
           name,
           email,
-        }))} 
+        }))}
       />
       <Link to="/add">Add User</Link>
     </>
   );
-}
+};
 
-export default DataList
+export default DataList;

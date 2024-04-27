@@ -1,46 +1,45 @@
-import { useQuery } from "@tanstack/react-query"
-import axios from "axios"
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import { useEffect } from "react";
 import { useUserStore } from "../stores/user";
 
 export interface User {
-    id: number,
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  address: {
+    street: string;
+    suite: string;
+    city: string;
+    zipcode: string;
+    geo: {
+      lat: string;
+      lng: string;
+    };
+  };
+  phone: string;
+  website: string;
+  company: {
     name: string;
-    username: string;
-    email: string;
-    address: {
-        street: string;
-        suite: string;
-        city: string;
-        zipcode: string;
-        geo: {
-            lat: string;
-            lng: string;
-        }
-    },
-    phone: string;
-    website: string;
-    company: {
-        name: string;
-        catchPhrase: string;
-        bs: string;
-    }
+    catchPhrase: string;
+    bs: string;
+  };
 }
-
 
 const fetcher = async () => {
-    return await axios
-        .get("https://jsonplaceholder.typicode.com/users")
-        .then(res => res.data);
-}
+  return await axios
+    .get("https://jsonplaceholder.typicode.com/users")
+    .then((res) => res.data);
+};
 export const useGetUsers = () => {
-    const {setUsers, users} = useUserStore()
-    const result = useQuery<User[]>({ 
-        queryKey: ["user-list"], 
-        queryFn: fetcher 
-    });
-    useEffect(() => {
-        if(result.data) setUsers(result.data)
-    }, [result.data])
-    return {...result, userList: users}
-}
+  const { setUsers, users } = useUserStore();
+  const result = useQuery<User[]>({
+    queryKey: ["user-list"],
+    queryFn: fetcher,
+  });
+  useEffect(() => {
+    if (result.data) setUsers(result.data);
+  }, [result.data]);
+  return { ...result, userList: users };
+};

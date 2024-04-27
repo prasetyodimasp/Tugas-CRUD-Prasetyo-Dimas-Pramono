@@ -2,16 +2,16 @@ import { create } from "zustand";
 import { User } from "../api/get-users";
 
 interface UserState {
-    users: User[];
+  users: User[];
 }
 interface UserAction {
-    setUsers: (payload: User[]) => void;
+  setUsers: (payload: User[]) => void;
 }
 
-type UserStore = UserState & UserAction
+type UserStore = UserState & UserAction;
 
 export const useUserStore = create<UserStore>((set) => ({
-    users: [],
+  users: [],
 
-    setUsers: (payload: User[]) => set({users: payload})
+  setUsers: (payload: User[]) => set({ users: payload }),
 }));
