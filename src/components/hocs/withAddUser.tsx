@@ -2,7 +2,6 @@ import { ComponentProps, ComponentType } from 'react'
 import UserDetailPage from '../../pages/user-detail-page';
 import { useAddUser } from '../../services/api/add-user';
 import { useUserStore } from '../../services/stores/user';
-import { useNavigate } from 'react-router-dom';
 
 type UserDetailPageProps = ComponentProps<typeof UserDetailPage>
 
