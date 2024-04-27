@@ -1,9 +1,7 @@
-import { Button, Table } from 'antd';
+import { Table } from 'antd';
 import { FC } from 'react'; 1
 import { colums } from './constants';
-import { useQuery } from '@tanstack/react-query';
 import { useGetUsers } from '../../services/api/get-users';
-import { useUserStore } from '../../services/stores/user';
 import { Link } from 'react-router-dom';
 
 const DataList: FC = () => {
