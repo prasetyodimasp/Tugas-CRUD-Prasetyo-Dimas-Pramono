@@ -5,7 +5,8 @@ type UserDetailPageProps = ComponentProps<typeof UserDetailPage>
 
 const withAddUser = (WrappedComponent: ComponentType<UserDetailPageProps>) => {
   const NewComponent = (props: ComponentProps<typeof WrappedComponent>) => {
-    return<WrappedComponent {...props} />
+    const onSubmit = () => {}
+    return <WrappedComponent {...props} onSubmit={onSubmit} />
   };
 
   return NewComponent;

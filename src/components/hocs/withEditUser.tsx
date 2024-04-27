@@ -10,8 +10,10 @@ const withEditUser = (WrappedComponent: ComponentType<UserDetailPageProps>) => {
     const location = useLocation();
     const state = location.state as UserDataType;
 
+    const onSubmit = () => {}
 
-    return<WrappedComponent {...props} initialValues={state} />
+
+    return<WrappedComponent {...props} initialValues={state} onSubmit={onSubmit} />
   };
 
   return NewComponent;
