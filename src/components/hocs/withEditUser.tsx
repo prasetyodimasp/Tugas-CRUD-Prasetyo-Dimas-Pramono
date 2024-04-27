@@ -1,11 +1,17 @@
 import { ComponentProps, ComponentType } from 'react'
 import UserDetailPage from '../../pages/user-detail-page';
+import { useLocation } from 'react-router-dom';
+import { UserDataType } from '../data-list/constants';
 
 type UserDetailPageProps = ComponentProps<typeof UserDetailPage>
 
 const withEditUser = (WrappedComponent: ComponentType<UserDetailPageProps>) => {
   const NewComponent = (props: ComponentProps<typeof WrappedComponent>) => {
-    return<WrappedComponent {...props} />
+    const location = useLocation();
+    const state = location.state as UserDataType;
+
+
+    return<WrappedComponent {...props} initialValues={state} />
   };
 
   return NewComponent;

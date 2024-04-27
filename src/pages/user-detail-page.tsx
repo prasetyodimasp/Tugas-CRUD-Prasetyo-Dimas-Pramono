@@ -3,18 +3,18 @@ import { Button, Form, Input } from 'antd';
 
 type onSubmit = {
     name: string;
-        username: string; 
-        email: string;
-} 
+    username: string;
+    email: string;
+}
 
-const UserDetailPage: FC<{onSubmit?:(values: onSubmit) => void}> = ({onSubmit}) => {
+const UserDetailPage: FC<{ onSubmit?: (values: onSubmit) => void, initialValues?: object }> = ({ onSubmit, initialValues }) => {
     const onFinish = (values: onSubmit) => {
-        if(onSubmit) onSubmit(values);
+        if (onSubmit) onSubmit(values);
     };
 
 
     return (
-        <Form onFinish={onFinish}>
+        <Form onFinish={onFinish} initialValues={initialValues}>
             <Form.Item label="Name" name="name">
                 <Input />
             </Form.Item>
